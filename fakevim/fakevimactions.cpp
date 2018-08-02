@@ -32,7 +32,7 @@
 // allows easy reuse with any QTextEdit or QPlainTextEdit derived class.
 
 
-#include <utils/qtcassert.h>
+#include "utils/qtcassert.h"
 
 #include <QDebug>
 

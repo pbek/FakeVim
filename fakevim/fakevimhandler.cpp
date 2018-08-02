@@ -58,8 +58,8 @@
 #include "fakevimactions.h"
 #include "fakevimtr.h"
 
-#include <utils/hostosinfo.h>
-#include <utils/qtcassert.h>
+#include "utils/hostosinfo.h"
+#include "utils/qtcassert.h"
 
 #include <QDebug>
 #include <QFile>
