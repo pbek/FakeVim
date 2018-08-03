@@ -122,7 +122,9 @@ FakeVimSettings::~FakeVimSettings()
 void FakeVimSettings::insertItem(int code, FakeVimAction *item,
     const QString &longName, const QString &shortName)
 {
+#ifndef Q_OS_WIN32
     QTC_ASSERT(!m_items.contains(code), qDebug() << code; return);
+#endif
     m_items[code] = item;
     if (!longName.isEmpty()) {
         m_nameToCode[longName] = code;
@@ -146,7 +148,9 @@ void FakeVimSettings::writeSettings(QSettings *settings)
 
 FakeVimAction *FakeVimSettings::item(int code)
 {
+#ifndef Q_OS_WIN32
     QTC_ASSERT(m_items.value(code, 0), qDebug() << "CODE: " << code; return 0);
+#endif
     return m_items.value(code, 0);
 }
 
