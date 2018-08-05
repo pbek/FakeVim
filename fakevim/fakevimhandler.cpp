@@ -6492,7 +6492,7 @@ void FakeVimHandler::Private::shiftRegionRight(int repeat)
     const int lines = endLine - beginLine + 1;
     if (lines > 2) {
         showMessage(MessageInfo,
-            Tr::tr("%n lines %1ed %2 time.", 0, lines)
+            Tr::tr("%n lines %1ed %2 time.", "%1 can be '>' or '<'", lines)
             .arg(repeat > 0 ? '>' : '<').arg(qAbs(repeat)));
     }
 }
