@@ -2677,7 +2677,7 @@ void FakeVimHandler::Private::ensureCursorVisible()
 
 void FakeVimHandler::Private::updateEditor()
 {
-#if QT_VERSION < QT_VERSION_CHECK(5,10,0)
+#if QT_VERSION < QT_VERSION_CHECK(5,11,0)
     const int charWidth = QFontMetrics(EDITOR(font())).width(' ');
     EDITOR(setTabStopWidth(charWidth * config(ConfigTabStop).toInt()));
 #else
@@ -2692,7 +2692,7 @@ void FakeVimHandler::Private::restoreWidget(int tabSize)
 {
     //EDITOR(removeEventFilter(q));
     //EDITOR(setReadOnly(m_wasReadOnly));
-#if QT_VERSION < QT_VERSION_CHECK(5,10,0)
+#if QT_VERSION < QT_VERSION_CHECK(5,11,0)
     const int charWidth = QFontMetrics(EDITOR(font())).width(' ');
     EDITOR(setTabStopWidth(charWidth * tabSize));
 #else
