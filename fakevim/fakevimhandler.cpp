@@ -1334,7 +1334,7 @@ class History
 public:
     History() : m_items(QString()) {}
     void append(const QString &item);
-    const QString &move(const QStringRef &prefix, int skip);
+    const QString &move(const QString &prefix, int skip);
     const QString &current() const { return m_items[m_index]; }
     const QStringList &items() const { return m_items; }
     void restart() { m_index = m_items.size() - 1; }
@@ -1355,13 +1355,13 @@ void History::append(const QString &item)
     restart();
 }
 
-const QString &History::move(const QStringRef &prefix, int skip)
+const QString &History::move(const QString &prefix, int skip)
 {
     if (!current().startsWith(prefix))
         restart();
 
     if (m_items.last() != prefix)
-        m_items[m_items.size() - 1] = prefix.toString();
+        m_items[m_items.size() - 1] = prefix;
 
     int i = m_index + skip;
     if (!prefix.isEmpty())
@@ -1385,7 +1385,7 @@ public:
         m_buffer = s; m_pos = m_userPos = pos; m_anchor = anchor >= 0 ? anchor : pos;
     }
 
-    QStringRef userContents() const { return m_buffer.leftRef(m_userPos); }
+    QString userContents() const { return m_buffer.left(m_userPos); }
     const QChar &prompt() const { return m_prompt; }
     const QString &contents() const { return m_buffer; }
     bool isEmpty() const { return m_buffer.isEmpty(); }
